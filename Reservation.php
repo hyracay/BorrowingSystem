@@ -87,9 +87,9 @@
             <div class="card-body">
                 <form id="borrowForm">
                     <div class="form-group">
-                    <p>What would you like to borrow?</p>
+                    <h5>What would you like to borrow?</h5>
                         <label for="equipmentcode">Enter equipment code/room</label>
-                        <input type="password" class="form-control" id="equipmentcode" placeholder="Example:ABC123">
+                        <input type="text" class="form-control" id="equipmentcode" placeholder="Example:ABC123">
                     </div>
                     <a href="#" class="btn btn-primary">Next</a>
                     <button type="button" class="btn btn-danger" id="alertButton3">Show Alert</button>
