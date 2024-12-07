@@ -1,5 +1,5 @@
-<button?php
-    include("db_conn.php")
+<?php
+    include("src/db_conn.php")
 
 ?>
 
