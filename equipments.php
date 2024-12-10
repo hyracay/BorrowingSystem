@@ -322,6 +322,7 @@ $result = mysqli_query($conn, $sql);
                             </div>
                             <div class="modal-body">
                                 <form name="editForm" id="editForm" method="POST">
+                                    <input type="hidden" name="equipmentCode" id="equipmentCode">
                                     <div class="mb-3">
                                         <label for="equipmentName" class="form-label">Equipment
                                             Name</label>
@@ -386,7 +387,7 @@ $result = mysqli_query($conn, $sql);
                 editModal.show();
 
                 // Populate modal fields
-                // document.getElementById('equipmentCode').value = equipmentData.equipmentCode;
+                document.getElementById('equipmentCode').value = equipmentData.equipmentCode;
                 document.getElementById('equipmentName').value = equipmentData.equipmentName;
                 document.getElementById('brand').value = equipmentData.brand;
                 document.getElementById('category').value = equipmentData.category;
@@ -407,8 +408,9 @@ $result = mysqli_query($conn, $sql);
                 contentType: false,
                 processData: false,
             }).done(function (data) {
-                if (data.success) {
-                    alert('Equipment updated successfully!');
+                const response = JSON.parse(data);
+                if (response.success) {
+                    console.log('Equipment updated successfully!');
                     location.reload(); // Reload page to reflect changes
                 } else {
                     alert('Error updating equipment.');
