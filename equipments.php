@@ -52,7 +52,7 @@ if (isset($_POST['editEquipment'])) {
                 category = '$category',
                 status = '$status',
                 WHERE equipmentCode = '$equipmentCode'";
-    
+
     $result = mysqli_query($conn, $update);
     if ($result) {
         header("location: equipment.php");
@@ -125,22 +125,30 @@ $result = mysqli_query($conn, $sql);
                             </a>
                         </li>
                         <li class="nav-section">
-                          <span class="sidebar-mini-icon">
-                            <i class="fa fa-ellipsis-h"></i>
-                          </span>
-                          <h4 class="text-section">Components</h4>
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Components</h4>
                         </li>
                         <li class="nav-item active">
-                            <a href="equipments.php"><p>Equipments</p></a>
+                            <a href="equipments.php">
+                                <p>Equipments</p>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="reservation.php"><p>Reservation</p></a>
+                            <a href="reservation.php">
+                                <p>Reservation</p>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="borrow.php"><p>Borrow</p></a>
+                            <a href="borrow.php">
+                                <p>Borrow</p>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a href="recycle.php"><p>Recycle Bin</p></a>
+                            <a href="recycle.php">
+                                <p>Recycle Bin</p>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -153,7 +161,8 @@ $result = mysqli_query($conn, $sql);
                 <div class="main-header-logo">
                     <div class="logo-header" data-background-color="dark">
                         <a href="dashboard.php" class="logo">
-                            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+                            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand"
+                                height="20" />
                         </a>
                     </div>
                 </div>
@@ -162,7 +171,8 @@ $result = mysqli_query($conn, $sql);
                         <div class="card-header">
                             <div class="d-flex align-items-center">
                                 <h4 class="card-title">EQUIPMENTS</h4>
-                                <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal" data-bs-target="#addRowModal">
+                                <button class="btn btn-primary btn-round ms-auto" data-bs-toggle="modal"
+                                    data-bs-target="#addRowModal">
                                     <i class="fa fa-plus"></i>
                                     Add New
                                 </button>
@@ -178,7 +188,8 @@ $result = mysqli_query($conn, $sql);
                                                 <span class="fw-mediumbold"> New</span>
                                                 <span class="fw-light"> Row </span>
                                             </h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -188,33 +199,41 @@ $result = mysqli_query($conn, $sql);
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-default">
                                                             <label>Equipment</label>
-                                                            <input id="addEquipment" type="text" class="form-control" placeholder="Equipment Name" name="equipmentName" required />
+                                                            <input id="addEquipment" type="text" class="form-control"
+                                                                placeholder="Equipment Name" name="equipmentName"
+                                                                required />
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12">
                                                         <div class="form-group form-group-default">
                                                             <label>Brand</label>
-                                                            <input id="equipmentBrand" type="text" class="form-control" placeholder="Brand" name="brand" required />
+                                                            <input id="equipmentBrand" type="text" class="form-control"
+                                                                placeholder="Brand" name="brand" required />
                                                         </div>
                                                         <div class="col-sm-12">
-                                                        <div class="form-group form-group-default">
-                                                            <label>Category</label>
-                                                            <input id="equipmentCategory" type="text" class="form-control" placeholder="Category" name="category" required />
+                                                            <div class="form-group form-group-default">
+                                                                <label>Category</label>
+                                                                <input id="equipmentCategory" type="text"
+                                                                    class="form-control" placeholder="Category"
+                                                                    name="category" required />
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-sm-12">
-                                                        <div class="form-group form-group-default">
-                                                            <label>Status</label>
-                                                            <input id="equipmentStatus" type="text" class="form-control" placeholder="Status" name="status" required />
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group form-group-default">
+                                                                <label>Status</label>
+                                                                <input id="equipmentStatus" type="text"
+                                                                    class="form-control" placeholder="Status"
+                                                                    name="status" required />
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer border-0">
                                                     <button type="submit" class="btn btn-primary" name="submitAdd">
                                                         Add
                                                     </button>
-                                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-bs-dismiss="modal">
                                                         Close
                                                     </button>
                                                 </div>
@@ -226,202 +245,215 @@ $result = mysqli_query($conn, $sql);
 
                             <!-- Table for Equipment List -->
                             <div class="table-responsive">
-                                <form id="equipmentForm" method="POST">
-                                    <table id="add-row" class="display table table-striped table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th>Equipment</th>
-                                                <th>Code</th>
-                                                <th>Brand</th>
-                                                <th>Category</th>
-                                                <th>Status</th>
-                                                <th style="width: 10%">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Equipment</th>
-                                                <th>Code</th>
-                                                <th>Brand</th>
-                                                <th>Category</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
-                                        
-                                        <tbody>
-                                            <?php if (mysqli_num_rows($result) > 0): ?>
-                                                <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                                                    <tr>
-                                                        <td><?= $row['equipmentName'] ?></td>
-                                                        <td><?= $row['equipmentCode'] ?></td>
-                                                        <td><?= $row['brand'] ?></td>
-                                                        <td><?= $row['category'] ?></td>
-                                                        <td><?= $row['status'] ?></td>
-                                                        <td>
-                                                            <div class="form-button-action">
-                                                                <button type="button" class="btn btn-link btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#editModal" title="Edit"
-                                                                    data-id="<?= $row['equipmentCode'] ?>"
-                                                                    data-name="<?= $row['equipmentName'] ?>"
-                                                                    data-brand="<?= $row['brand'] ?>"
-                                                                    data-category="<?= $row['category'] ?>"
-                                                                    data-status="<?= $row['status'] ?>">
-                                                                    <i class="fa fa-edit"></i>
-                                                                </button>
-                                                                <!-- Edit modal -->
-                                                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
-                                                                    <div class="modal-dialog">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title" id="editModalLabel">Edit Equipment</h5>
-                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <!-- Form for editing task -->
-                                                                                <form id="editForm" method="POST" action="equipments.php?id=<?php echo $equipmentCode; ?>">
-                                                                                <input type="hidden" name="equipmentCode" id="equipmentCode" value="<?php echo $equipment['equipmentCode']; ?>">
-                                                                                    <div class="mb-3">
-                                                                                        <label for="equipmentName" class="form-label">Equipment Name</label>
-                                                                                        <input type="text" class="form-control" id="equipmentName">
-                                                                                    </div>
-                                                                                    <div class="mb-3">
-                                                                                        <label for="brand" class="form-label">Brand</label>
-                                                                                        <input type="text" class="form-control" id="brand" placeholder="">
-                                                                                    </div>
-                                                                                    <div class="mb-3">
-                                                                                        <label for="category" class="form-label">Category</label>
-                                                                                        <input type="text" class="form-control" id="category" placeholder="">
-                                                                                    </div>
-                                                                                    <div class="mb-3">
-                                                                                        <label for="status" class="form-label">Status</label>
-                                                                                        <input type="text" class="form-control" id="status" placeholder="">
-                                                                                    </div>
-                                                                                    <div class="modal-footer"></div>
-                                                                                        <button type="submit" id="editEquipment" form="editForm" class="btn btn-primary">Save Changes</button> 
-                                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                                                    </div>
-                                                                                </form>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <button type="button" class="btn btn-link btn-danger delete-btn" 
-                                                                    data-id="<?= $row['equipmentCode'] ?>" 
-                                                                    data-bs-toggle="tooltip" 
-                                                                    data-bs-placement="top" 
-                                                                    title="Delete">
+                                <table id="add-row" class="display table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Equipment</th>
+                                            <th>Code</th>
+                                            <th>Brand</th>
+                                            <th>Category</th>
+                                            <th>Status</th>
+                                            <th style="width: 10%">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Equipment</th>
+                                            <th>Code</th>
+                                            <th>Brand</th>
+                                            <th>Category</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+
+                                    <tbody>
+                                        <?php if (mysqli_num_rows($result) > 0): ?>
+                                            <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                                                <tr>
+                                                    <td><?= $row['equipmentName'] ?></td>
+                                                    <td><?= $row['equipmentCode'] ?></td>
+                                                    <td><?= $row['brand'] ?></td>
+                                                    <td><?= $row['category'] ?></td>
+                                                    <td><?= $row['status'] ?></td>
+                                                    <td>
+                                                        <div class="form-button-action">
+                                                            <button type="button"
+                                                                class="btn btn-link btn-primary btn-lg edit-btn"
+                                                                data-bs-toggle="modal" data-bs-target="#editModal" title="Edit"
+                                                                data-id="<?= $row['equipmentCode'] ?>"
+                                                                data-name="<?= $row['equipmentName'] ?>"
+                                                                data-brand="<?= $row['brand'] ?>"
+                                                                data-category="<?= $row['category'] ?>"
+                                                                data-status="<?= $row['status'] ?>">
+                                                                <i class="fa fa-edit"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-link btn-danger delete-btn"
+                                                                data-id="<?= $row['equipmentCode'] ?>" data-bs-toggle="tooltip"
+                                                                data-bs-placement="top" title="Delete">
                                                                 <i class="fa fa-times"></i>
                                                             </button>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                <?php endwhile; ?>
-                                            <?php else: ?>
-                                                <tr>
-                                                    <td colspan="4">No equipment found</td>
+                                                        </div>
+                                                    </td>
                                                 </tr>
-                                            <?php endif; ?>
-                                        </tbody>
-                                    </table>
+                                            <?php endwhile; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="4">No equipment found</td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- putting edit modal outside of the loop, we only need one -->
+                <!-- Edit modal -->
+                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editModalLabel">Edit
+                                    Equipment</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form name="editForm" id="editForm" method="POST">
+                                    <div class="mb-3">
+                                        <label for="equipmentName" class="form-label">Equipment
+                                            Name</label>
+                                        <input type="text" class="form-control" id="equipmentName" name="equipmentName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="brand" class="form-label">Brand</label>
+                                        <input type="text" class="form-control" id="brand" name="brand" placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="category" class="form-label">Category</label>
+                                        <input type="text" class="form-control" id="category" name="category"
+                                            placeholder="">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="status" class="form-label">Status</label>
+                                        <input type="text" class="form-control" id="status" name="status"
+                                            placeholder="">
+                                    </div>
                                 </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="editEquipment" form="editForm" class="btn btn-primary">Save
+                                    Changes</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <script>
-                document.querySelectorAll('.edit-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const equipmentData = {
-                        equipmentCode: this.dataset.id,
-                        equipmentName: this.dataset.name,
-                        brand: this.dataset.brand,
-                        category: this.dataset.category,
-                        status: this.dataset.status
-                    };
+        </div>
+    </div>
 
-                    // Populate modal fields
-                    document.getElementById('equipmentCode').value = equipmentData.equipmentCode;
-                    document.getElementById('equipmentName').value = equipmentData.equipmentName;
-                    document.getElementById('brand').value = equipmentData.brand;
-                    document.getElementById('category').value = equipmentData.category;
-                    document.getElementById('status').value = equipmentData.status;
+    <!-- Core JS Files -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+    <!-- Additional JS Libraries -->
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Initialize DataTable
+            var table = $("#add-row").DataTable({
+                pageLength: 5,
+            });
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const equipmentData = {
+                    equipmentCode: this.dataset.id,
+                    equipmentName: this.dataset.name,
+                    brand: this.dataset.brand,
+                    category: this.dataset.category,
+                    status: this.dataset.status
+                };
 
-                    // Show modal
-                    const editModal = new bootstrap.Modal(document.getElementById('editModal'));
-                    editModal.show();
-                    });
-                });
+                // Show modal
+                const editModal = new bootstrap.Modal(document.getElementById('editModal'));
+                editModal.show();
 
-                // Handle form submission
-                document.getElementById('editForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
+                // Populate modal fields
+                // document.getElementById('equipmentCode').value = equipmentData.equipmentCode;
+                document.getElementById('equipmentName').value = equipmentData.equipmentName;
+                document.getElementById('brand').value = equipmentData.brand;
+                document.getElementById('category').value = equipmentData.category;
+                document.getElementById('status').value = equipmentData.status;
+            });
+        });
 
-                    const formData = new FormData(this);
+        // Handle form submission
+        document.getElementById('editForm').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-                    fetch('update_equipment.php', {
+            const formData = new FormData(this);
+
+            $.ajax({
+                type: 'POST',
+                url: '/update.php',
+                data: formData,
+                contentType: false,
+                processData: false,
+            }).done(function (data) {
+                if (data.success) {
+                    alert('Equipment updated successfully!');
+                    location.reload(); // Reload page to reflect changes
+                } else {
+                    alert('Error updating equipment.');
+                }
+            }).fail(function (error) {
+                console.error('Error:', error);
+            });
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                const equipmentCode = this.dataset.id;
+
+                // Confirm deletion
+                if (confirm('Are you sure you want to delete this equipment?')) {
+                    // Send a POST request to delete the equipment
+                    fetch('delete.php', {
                         method: 'POST',
-                        body: formData
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: `equipmentCode=${equipmentCode}`
                     })
                         .then(response => response.json())
                         .then(data => {
                             if (data.success) {
-                                alert('Equipment updated successfully!');
-                                location.reload(); // Reload page to reflect changes
+                                location.reload(); // Reload page to update the table
+                                alert('Equipment deleted successfully!');
                             } else {
-                                alert('Error updating equipment.');
+                                alert(`Error deleting equipment: ${data.error}`);
                             }
                         })
                         .catch(error => {
                             console.error('Error:', error);
+                            alert('An error occurred while deleting the equipment.');
                         });
-                    });
+                }
+            });
+        });
 
-                    document.querySelectorAll('.delete-btn').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const equipmentCode = this.dataset.id;
-
-                        // Confirm deletion
-                        if (confirm('Are you sure you want to delete this equipment?')) {
-                            // Send a POST request to delete the equipment
-                            fetch('delete.php', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                                body: `equipmentCode=${equipmentCode}`
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-                                    if (data.success) {
-                                        location.reload(); // Reload page to update the table
-                                        alert('Equipment deleted successfully!');
-                                    } else {
-                                        alert(`Error deleting equipment: ${data.error}`);
-                                    }
-                                })
-                                .catch(error => {
-                                    console.error('Error:', error);
-                                    alert('An error occurred while deleting the equipment.');
-                                });
-                        }
-                    });
-                });
-            </script>
-            <!-- Core JS Files -->
-            <script src="assets/js/core/jquery-3.7.1.min.js"></script>
-            <script src="assets/js/core/popper.min.js"></script>
-            <script src="assets/js/core/bootstrap.min.js"></script>
-            <!-- Additional JS Libraries -->
-            <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
-            <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-            <script>
-                $(document).ready(function () {
-                    // Initialize DataTable
-                    var table = $("#add-row").DataTable({
-                        pageLength: 5,
-                    });
-                });
-            </script>
-        </div>
-    </div>
+        document.getElementById('editModal').addEventListener('hidden.bs.modal', function () {
+            const backdrop = document.querySelector('.modal-backdrop');
+            if (backdrop) {
+                backdrop.remove();
+            }
+        });
+    </script>
 </body>
+
 </html>
